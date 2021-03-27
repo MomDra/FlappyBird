@@ -34,5 +34,6 @@ public class MyBird : MonoBehaviour
     {
         isDead = true;
         myAmimator.SetTrigger("Die");
+        MyGameController.instance.BirdDie();
     }
 }
