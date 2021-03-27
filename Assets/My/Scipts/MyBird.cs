@@ -32,6 +32,7 @@ public class MyBird : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        myRigid.velocity = Vector2.zero;
         isDead = true;
         myAmimator.SetTrigger("Die");
         MyGameController.instance.BirdDie();

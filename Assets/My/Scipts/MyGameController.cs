@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MyGameController : MonoBehaviour
 {
@@ -9,7 +10,12 @@ public class MyGameController : MonoBehaviour
 
     [SerializeField]
     GameObject gameOverText;
+    [SerializeField]
+    Text scoreText;
     public bool gameOver = false;
+    public float scrollSpeed = -1.5f;
+
+    int score = 0;
 
     void Awake()
     {
@@ -35,5 +41,16 @@ public class MyGameController : MonoBehaviour
     {
         gameOverText.SetActive(true);
         gameOver = true;
+    }
+
+    public void BirdScored()
+    {
+        if (gameOver)
+        {
+            return;
+        }
+
+        score++;
+        scoreText.text = "Score: " + score.ToString();
     }
 }
